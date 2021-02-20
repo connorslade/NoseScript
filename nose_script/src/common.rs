@@ -11,12 +11,12 @@ pub fn color_println(text: &str, color_index: i32) {
     println!("{}", color_text(text, color_index));
 }
 
-pub fn mk_dir(path: &str) -> std::io::Result<()>{
+pub fn mk_dir(path: &str) -> std::io::Result<()> {
     fs::create_dir(path)?;
     Ok(())
 }
 
-pub fn mk_file(path: &str, text: &str) -> std::io::Result<()>{
+pub fn mk_file(path: &str, text: &str) -> std::io::Result<()> {
     let mut file = File::create(path)?;
     file.write_all(text.as_ref())?;
     Ok(())

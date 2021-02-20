@@ -20,18 +20,18 @@ fn init_project_dir(dir: String) {
     color_println(&*"[*] Created Subdirectories Successfully!\n", 32);
 
     color_println(&*"[*] Creating `index.ns`", 36);
-    let _result = mk_file(&*format!("{}/src/index.ns", dir), "PLACEHOLDER");
+    let _result = mk_file(&*format!("{}/src/index.ns", dir), "cout(\"Hello World\");");
     color_println(&*"[*] Created File Successfully!\n", 32);
 }
 
-fn gen_project_name(args: Vec<String>) -> String { //TODO: Make this less Bad...
+fn gen_project_name(args: Vec<String>) -> String {
+    //TODO: Make this less Bad...
     let args_string: String = args.join(" ").to_string();
     let split = args_string.split("init ");
     let mut working: String = "".to_string();
-
     for s in split {
         working = s.parse().unwrap();
     }
-
-    return working.to_string();
+    let string_underscore = str::replace(&mut &*working, " ", "_");
+    return string_underscore.to_ascii_lowercase();
 }

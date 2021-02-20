@@ -1,6 +1,6 @@
 use crate::common::{color_println, color_text};
 
-pub fn nose_script_intro(){
+pub fn nose_script_intro() {
     print!("\x1B[2J\x1B[1;1H");
     color_println("   Welcome to                                                                                        ", 34);
     color_println("                                                                                                     ", 37);
@@ -13,7 +13,11 @@ pub fn nose_script_intro(){
     color_println(" █████  ░░█████░░██████  ██████ ░░██████    ░░█████████ ░░██████  █████     █████ ░███████   ░░█████ ", 37);
     color_println("░░░░░    ░░░░░  ░░░░░░  ░░░░░░   ░░░░░░      ░░░░░░░░░   ░░░░░░  ░░░░░     ░░░░░  ░███░░░     ░░░░░  ", 37);
     color_println("                                                                                  ░███               ", 37);
-    println!("   {}                                                               █████      {}   ", color_text("By: Connor Slade", 32), color_text("V0.00", 33));
+    println!(
+        "   {}                                                               █████      {}   ",
+        color_text("By: Connor Slade", 32),
+        color_text("V0.00", 33)
+    );
     color_println("                                                                                 ░░░░░               ", 37);
     color_println("                                                                                                     ", 37);
-    }
+}
