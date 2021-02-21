@@ -3,7 +3,7 @@ mod help;
 mod init;
 mod nose;
 
-pub fn parse_command(args: Vec<String>) {
+pub fn parse_command(args: Vec<String>) { //TODO: Add a you may have ment ...
     let args_len = args.len();
     if args_len <= 1 {
         no_sub_command();
