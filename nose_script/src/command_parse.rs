@@ -2,6 +2,7 @@ use crate::common::{color_println, color_text};
 mod help;
 mod init;
 mod nose;
+mod run;
 
 pub fn parse_command(args: Vec<String>) {
     let args_len = args.len();
@@ -11,6 +12,7 @@ pub fn parse_command(args: Vec<String>) {
         match &args[1].to_lowercase()[..] {
             "help" => help::index(),
             "init" => init::index(args, args_len),
+            "run" => run::index(args, args_len),
             "nose" => nose::index(),
             _ => incorrect_command(args[1].to_lowercase()),
         }
@@ -22,6 +24,7 @@ fn no_sub_command() {
     color_println(" └── SubCommands", 33);
     color_println("     ├─── Help", 33);
     color_println("     ├─── Init", 33);
+    color_println("     ├─── Run", 33);
     color_println("     └─── Nose 🐶", 33);
 }
 
@@ -30,6 +33,7 @@ fn incorrect_command(command: String) {
     match command.chars().nth(0).unwrap() {
         'h' => did_you_mean("help"),
         'i' => did_you_mean("init"),
+        'r' => did_you_mean("run"),
         'n' => did_you_mean("nose"),
         _ => {}
     }

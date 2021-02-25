@@ -21,3 +21,15 @@ pub fn mk_file(path: &str, text: &str) -> std::io::Result<()> {
     file.write_all(text.as_ref())?;
     Ok(())
 }
+
+pub fn gen_project_name(args: Vec<String>, split: &str) -> String {
+    //TODO: Make this less Bad...
+    let args_string: String = args.join(" ").to_string();
+    let split = args_string.split(split);
+    let mut working: String = "".to_string();
+    for s in split {
+        working = s.parse().unwrap();
+    }
+    let string_underscore = str::replace(&mut &*working, " ", "_");
+    return string_underscore.to_ascii_lowercase();
+}
