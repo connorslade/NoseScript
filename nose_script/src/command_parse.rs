@@ -1,9 +1,9 @@
-use crate::common::color_println;
+use crate::common::{color_println, color_text};
 mod help;
 mod init;
 mod nose;
 
-pub fn parse_command(args: Vec<String>) { //TODO: Add a you may have ment ...
+pub fn parse_command(args: Vec<String>) {
     let args_len = args.len();
     if args_len <= 1 {
         no_sub_command();
@@ -26,5 +26,19 @@ fn no_sub_command() {
 }
 
 fn incorrect_command(command: String) {
-    color_println(&*format!("[*] Unknown Command: `{}`", command), 31)
+    color_println(&*format!("[*] Unknown Command: `{}`", command), 31);
+    match command.chars().nth(0).unwrap() {
+        'h' => did_you_mean("help"),
+        'i' => did_you_mean("init"),
+        'n' => did_you_mean("nose"),
+        _ => {}
+    }
+}
+
+fn did_you_mean(command: &str) {
+    println!(
+        "{}{}",
+        color_text(" └── Did you mean ", 36),
+        color_text(&*command, 35)
+    )
 }
