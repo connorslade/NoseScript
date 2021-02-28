@@ -10,17 +10,25 @@ pub fn index(args: Vec<String>, args_len: usize) {
 }
 
 fn init_project_dir(dir: String) {
-    //TODO: Check if these make dir / file are success
     color_println(&*format!("[*] Creating Directory: `{}`", dir), 36);
-    let _result = mk_dir(&*dir);
-    color_println(&*"[*] Created Directory Successfully!\n", 32);
+    check_is_err(mk_dir(&*dir), "Directory");
 
     color_println(&*"[*] Creating Subdirectories: `src` and `build`", 36);
-    let _result = mk_dir(&*format!("{}/src", dir));
-    let _result = mk_dir(&*format!("{}/build", dir));
-    color_println(&*"[*] Created Subdirectories Successfully!\n", 32);
+    check_is_err(mk_dir(&*format!("{}/src", dir)), "Subdirectory `src`");
+    check_is_err(mk_dir(&*format!("{}/build", dir)), "Subdirectory `build`");
 
-    color_println(&*"[*] Creating `index.ns`", 36);
-    let _result = mk_file(&*format!("{}/src/index.ns", dir), "cout(\"Hello World\");");
-    color_println(&*"[*] Created File Successfully!\n", 32);
+    color_println(&*"[*] Creating File: `index.ns`", 36);
+    check_is_err(
+        mk_file(&*format!("{}/src/index.ns", dir), "cout(\"Hello World\");"),
+        "File `index.ns`",
+    );
+}
+
+fn check_is_err(res: std::io::Result<()>, process: &str) {
+    if res.is_ok() {
+        color_println(&*format!("[*] Created {} Successfully!\n", process), 32);
+    } else {
+        color_println(&*format!("[*] Error creating {}...\n", process), 31);
+        std::process::exit(0);
+    }
 }
