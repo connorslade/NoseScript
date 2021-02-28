@@ -10,6 +10,7 @@ pub fn index(args: Vec<String>, args_len: usize) {
 }
 
 fn init_project_dir(dir: String) {
+    //TODO: Check if these make dir / file are success
     color_println(&*format!("[*] Creating Directory: `{}`", dir), 36);
     let _result = mk_dir(&*dir);
     color_println(&*"[*] Created Directory Successfully!\n", 32);
