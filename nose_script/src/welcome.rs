@@ -14,8 +14,9 @@ pub fn nose_script_intro() {
     color_println("░░░░░    ░░░░░  ░░░░░░  ░░░░░░   ░░░░░░      ░░░░░░░░░   ░░░░░░  ░░░░░     ░░░░░  ░███░░░     ░░░░░  ", 37);
     color_println("                                                                                  ░███               ", 37);
     println!(
-        "   {}                                                               █████      {}   ",
+        "   {}                                                               {}      {}   ",
         color_text("By: Connor Slade", 32),
+        color_text("█████", 37),
         color_text("V0.00", 33)
     );
     color_println("                                                                                 ░░░░░               ", 37);
