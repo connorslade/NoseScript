@@ -31,11 +31,9 @@ pub fn read_file(path: &str) -> Result<String, io::Error> {
 
 pub fn gen_project_name(args: Vec<String>, split: &str) -> String {
     let args_string: String = args.join(" ").to_string();
-    let split = args_string.split(split);
-    let mut working: String = "".to_string();
-    for s in split {
-        working = s.parse().unwrap();
-    }
-    let string_underscore = str::replace(&mut &*working, " ", "_");
-    return string_underscore.to_ascii_lowercase();
+    let args_split = args_string.split(split).collect::<Vec<&str>>();
+    let working = args_split[args_split.len() - 1]
+        .to_string()
+        .replace(" ", "_");
+    return working;
 }
