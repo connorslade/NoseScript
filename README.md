@@ -1,4 +1,3 @@
-<br />
 <p align="center">
   <a href="https://2b2t-queue.connorcode.com/">
     <img src="https://i.imgur.com/3tFd18X.png" alt="Logo" width="35%" />
