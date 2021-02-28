@@ -50,7 +50,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Screen Shot](https://i.imgur.com/lnQ8iyw.png)](https://github.com/Basicprogrammer10/NoseScript)
+[![Screen Shot](https://i.imgur.com/etdf3A9.png)](https://github.com/Basicprogrammer10/NoseScript)
 
 My own programming Language!
 
