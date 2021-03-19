@@ -7,6 +7,8 @@
 
   <p align="center">
   The <b>Best</b> Programming languge
+    <br/>
+  (WIP)
     <br />
     <a href="https://github.com/Basicprogrammer10/NoseScript/wiki"><strong>Explore the docs »</strong></a>
     <br />
